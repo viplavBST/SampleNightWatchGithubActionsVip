@@ -14,7 +14,8 @@ Sample for using nightwatch with BrowserStack Automate.
 
 ###Sample test
  - Path: `tests/google/googleTest.js`
- - To run: `nightwatch -c ./settings.json`
+ - To start a single test run: `nightwatch -c ./single_test_settings.json`
+ - To start parallel tests run: `nightwatch -c parallel_test_settings.json -e browserstack_firefox,browserstack_chrome,browserstack_safari,browserstack_ie`
 
 [nightwatch]:http://nightwatchjs.org/guide
 [capabilities]:http://www.browserstack.com/automate/capabilities
