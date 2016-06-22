@@ -6,7 +6,7 @@
   "scripts": {
     "test": "./node_modules/.bin/nightwatch",
     "single": "./node_modules/.bin/nightwatch",
-    "local": "node scripts/test_local.js",
+    "local": "./node_modules/.bin/nightwatch -c nightwatch_local.conf.js",
     "parallel": "./node_modules/.bin/nightwatch -e chrome,firefox,safari,ie"
   },
   "repository": {
