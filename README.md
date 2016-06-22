@@ -1,22 +1,15 @@
-BrowserStack-nightwatch
-=========
+# nightwatch-browserstack
 
-Sample for using nightwatch with BrowserStack Automate.
+[Nightwatch](http://nightwatchjs.org/) Integration with BrowserStack.
 
-###Install nightwatch.js
-*Starting and prerequisite: [nightwatch]*
-- `npm install`
+## Setup
 
-###Configuring the json
- - Open `nightwatch.conf.js` or `nightwatch_local.conf.js`
- - Add `browserstack.user` and `browserstack.key` with your BrowserStack credentials. Don't have one? Get one on BrowserStack [dashboard]
- - Add / customise more [capabilities] to `desiredCapabilities` in `settings.json`
+- Clone the repo
+- Install dependencies `npm install`
+- Update `nightwatch_conf*.js` with your BrowserStack credentials `user` and `key`
 
-###Sample test
- - To start a single test run: `npm test` or `npm run test_single`
- - To start parallel tests run: `npm run test_parallel`
- - To start local tests run: `npm run test_local`
+### Run the tests
 
-[nightwatch]:http://nightwatchjs.org/guide
-[capabilities]:http://www.browserstack.com/automate/capabilities
-[dashboard]:https://www.browserstack.com/automate
+- To run single test, run `npm run single`
+- To run parallel tests, run `npm run parallel`
+- To run local tests, run `npm run local`
