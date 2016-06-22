@@ -4,7 +4,7 @@
   "readme": "Nightwatch Integration with [BrowserStack](https://www.browserstack.com)",
   "description": "Selenium examples for Nightwatch and BrowserStack Automate",
   "scripts": {
-    "test": "./node_modules/.bin/nightwatch",
+    "test": "npm run single && npm run local && npm run parallel",
     "single": "./node_modules/.bin/nightwatch",
     "local": "./node_modules/.bin/nightwatch -c nightwatch_local.conf.js",
     "parallel": "./node_modules/.bin/nightwatch -e chrome,firefox,safari,ie"

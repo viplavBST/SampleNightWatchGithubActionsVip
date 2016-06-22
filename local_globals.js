@@ -2,7 +2,7 @@ var browserstack = require('browserstack-local');
 var bs_local;
 
 module.exports = {
-  before : function(done) {
+  beforeEach : function(browser, done) {
     console.log("Connecting local");
     bs_local = new browserstack.Local();
     bs_local.start({'key': browser.options.desiredCapabilities['browserstack.key'] }, function(error) {
@@ -13,7 +13,7 @@ module.exports = {
     });
   },
 
-  after : function(done) {
+  afterEach : function(browser, done) {
     bs_local.stop(done);
   }
 }
