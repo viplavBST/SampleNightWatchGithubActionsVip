@@ -1,13 +1,13 @@
 {
   "name": "nightwatch-browserstack",
   "version": "0.1.0",
-  "readme": "NightwatchJS tests on [BrowserStack](https://www.browserstack.com)",
-  "description": "An example module to run nightwatch tests on browserstack",
+  "readme": "Nightwatch Integration with [BrowserStack](https://www.browserstack.com)",
+  "description": "Selenium examples for Nightwatch and BrowserStack Automate",
   "scripts": {
     "test": "./node_modules/.bin/nightwatch",
-    "test_local": "node scripts/test_local.js",
-    "test_single": "./node_modules/.bin/nightwatch -e chrome_48",
-    "test_parallel": "./node_modules/.bin/nightwatch -e default,firefox_45,chrome_48"
+    "single": "./node_modules/.bin/nightwatch",
+    "local": "node scripts/test_local.js",
+    "parallel": "./node_modules/.bin/nightwatch -e chrome,firefox,safari,ie"
   },
   "repository": {
     "type": "git",
