@@ -30,7 +30,7 @@ nightwatch_config = {
         "browserstack.debug": true,
 
         browser: "chrome",
-        browser_verion: "48",
+        browser_version: "48",
         os: "Windows",
         os_version: "10"
       }
@@ -46,7 +46,7 @@ nightwatch_config = {
         "browserstack.debug": true,
 
         browser: "firefox",
-        browser_verion: "45",
+        browser_version: "45",
         os: "OS X",
         os_version: "El Capitan"
       }
