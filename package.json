@@ -6,8 +6,9 @@
   "scripts": {
     "test": "npm run single && npm run local && npm run parallel",
     "single": "./node_modules/.bin/nightwatch -c conf/single.conf.js",
-    "local": "./node_modules/.bin/nightwatch -c conf/local.conf.js",
-    "parallel": "./node_modules/.bin/nightwatch -c conf/parallel.conf.js -e chrome,firefox,safari,ie"
+    "local": "./scripts/local.runner.js -c conf/local.conf.js",
+    "parallel": "./node_modules/.bin/nightwatch -c conf/parallel.conf.js -e chrome,firefox,safari,ie",
+    "parallel_local": "./scripts/local.runner.js -c conf/parallel_local.conf.js -e chrome,firefox,safari"
   },
   "repository": {
     "type": "git",
