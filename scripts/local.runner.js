@@ -17,10 +17,13 @@ try {
     Nightwatch.cli(function(argv) {
       Nightwatch.CliRunner(argv)
         .setup(null, function(){
-          // Code to stop browserstack local after end of test
+          // Code to stop browserstack local after end of parallel test
           bs_local.stop(function(){});
         })
-        .runTests(function(){});
+        .runTests(function(){
+          // Code to stop browserstack local after end of single test
+          bs_local.stop(function(){});
+        });
     });
   });
 } catch (ex) {
