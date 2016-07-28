@@ -20,9 +20,7 @@ nightwatch_config = {
         'browser': 'chrome'
       }
     }
-  },
-
-  globals_path: 'scripts/local.globals.js'
+  }
 };
 
 // Code to copy seleniumhost/port into test settings
