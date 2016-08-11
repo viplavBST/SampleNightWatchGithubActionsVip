@@ -9,7 +9,7 @@
     "local": "./scripts/local.runner.js -c conf/local.conf.js",
     "parallel": "./node_modules/.bin/nightwatch -c conf/parallel.conf.js -e chrome,firefox,safari,ie",
     "parallel_local": "./scripts/local.runner.js -c conf/parallel_local.conf.js -e chrome,firefox,safari",
-    "suite": "./node_modules/.bin/nightwatch -c conf/suite.conf.js -e chrome"
+    "suite": "./node_modules/.bin/nightwatch -c conf/suite.conf.js"
   },
   "repository": {
     "type": "git",

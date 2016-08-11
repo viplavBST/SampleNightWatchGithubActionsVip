@@ -7,33 +7,14 @@ nightwatch_config = {
     "port" : 80
   },
 
-  common_capabilities: {
-    'build': 'nightwatch-browserstack',
-    'browserstack.user': process.env.BROWSERSTACK_USERNAME || 'BROWSERSTACK_USERNAME',
-    'browserstack.key': process.env.BROWSERSTACK_ACCESS_KEY || 'BROWSERSTACK_ACCESS_KEY',
-    'browserstack.debug': true
-  },
-
   test_settings: {
-    default: {},
-    chrome: {
+    default: {
       desiredCapabilities: {
-        browser: "chrome"
-      }
-    },
-    firefox: {
-      desiredCapabilities: {
-        browser: "firefox"
-      }
-    },
-    safari: {
-      desiredCapabilities: {
-        browser: "safari"
-      }
-    },
-    ie: {
-      desiredCapabilities: {
-        browser: "internet explorer"
+        'build': 'nightwatch-browserstack',
+        'browserstack.user': process.env.BROWSERSTACK_USERNAME || 'BROWSERSTACK_USERNAME',
+        'browserstack.key': process.env.BROWSERSTACK_ACCESS_KEY || 'BROWSERSTACK_ACCESS_KEY',
+        'browserstack.debug': true,
+        'browser': 'chrome'
       }
     }
   },
@@ -44,15 +25,11 @@ nightwatch_config = {
   }   
 };
 
-// Code to support common capabilites
+// Code to copy seleniumhost/port into test settings
 for(var i in nightwatch_config.test_settings){
   var config = nightwatch_config.test_settings[i];
   config['selenium_host'] = nightwatch_config.selenium.host;
   config['selenium_port'] = nightwatch_config.selenium.port;
-  config['desiredCapabilities'] = config['desiredCapabilities'] || {};
-  for(var j in nightwatch_config.common_capabilities){
-    config['desiredCapabilities'][j] = config['desiredCapabilities'][j] || nightwatch_config.common_capabilities[j];
-  }
 }
 
 module.exports = nightwatch_config;
