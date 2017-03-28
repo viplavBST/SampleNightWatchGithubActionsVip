@@ -24,6 +24,24 @@
   export BROWSERSTACK_USERNAME=<browserstack-username> &&
   export BROWSERSTACK_ACCESS_KEY=<browserstack-access-key>
   ```
+
+## Connecting to BrowserStack via a proxy server
+You can specify proxy settings in Nightwatch by adding the `proxy` key in your `*.conf.js` 
+
+```javascript
+  test_settings: {
+    default: {
+      desiredCapabilities: {
+        // Your capabilities
+      },
+      proxy: {
+      "host": "",     // "127.0.0.1"
+      "port": "",     // "8081"
+      "protocol": ""  // "http"
+      }
+    }
+  }
+```
   
 ## Additional Resources
 * [Documentation for writing automate test scripts in Node](https://www.browserstack.com/automate/node)
