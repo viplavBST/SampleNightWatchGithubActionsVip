@@ -35,9 +35,9 @@ You can specify proxy settings in Nightwatch by adding the `proxy` key in your `
         // Your capabilities
       },
       proxy: {
-      "host": "",     // "127.0.0.1"
-      "port": "",     // "8081"
-      "protocol": ""  // "http"
+        "host": "",     // "127.0.0.1"
+        "port": "",     // "8081"
+        "protocol": ""  // "http"
       }
     }
   }
