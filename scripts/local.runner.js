@@ -5,24 +5,23 @@ var browserstack = require('browserstack-local');
 var bs_local;
 
 try {
-
-  require.main.filename = "./node_modules/nightwatch/bin/nightwatch"
+  require.main.filename = './node_modules/nightwatch/bin/nightwatch';
   // Code to start browserstack local before start of test
-  console.log("Connecting local");
+  console.log('Connecting local');
   Nightwatch.bs_local = bs_local = new browserstack.Local();
-  bs_local.start({'key': process.env.BROWSERSTACK_KEY }, function(error) {
+  bs_local.start({ key: process.env.BROWSERSTACK_KEY }, function (error) {
     if (error) throw error;
 
     console.log('Connected. Now testing...');
-    Nightwatch.cli(function(argv) {
+    Nightwatch.cli(function (argv) {
       Nightwatch.CliRunner(argv)
-        .setup(null, function(){
+        .setup(null, function () {
           // Code to stop browserstack local after end of parallel test
-          bs_local.stop(function(){});
+          bs_local.stop(function () {});
         })
-        .runTests(function(){
+        .runTests(function () {
           // Code to stop browserstack local after end of single test
-          bs_local.stop(function(){});
+          bs_local.stop(function () {});
         });
     });
   });
