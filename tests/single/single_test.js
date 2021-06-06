@@ -1,7 +1,7 @@
 module.exports = {
   'Google\'s Search Functionality' : function (browser) {
     browser
-      .url('https://www.google.com/ncr')
+      .url('https://www.google.com/')
       .waitForElementVisible('body', 1000)
       .setValue('input[type=text]', 'BrowserStack')
       .click('input[name=btnK]')
