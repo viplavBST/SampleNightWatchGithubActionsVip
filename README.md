@@ -10,6 +10,12 @@
 
 - Clone the repo
 - Install dependencies `npm install`
+- You can export the environment variables for the Username and Access Key of your BrowserStack account
+
+  ```
+  export BROWSERSTACK_USER=<browserstack-username> &&
+  export BROWSERSTACK_KEY=<browserstack-access-key>
+  ```
 
 ## Running your tests
 
@@ -23,12 +29,7 @@ Understand how many parallel sessions you need by using our [Parallel Test Calcu
 
 - You can view your test results on the [BrowserStack automate dashboard](https://automate.browserstack.com)
 - To test on a different set of browsers, check out our [capabilities generator](https://www.browserstack.com/automate/capabilities)
-- You can export the environment variables for the Username and Access Key of your BrowserStack account
 
-  ```
-  export BROWSERSTACK_USER=<browserstack-username> &&
-  export BROWSERSTACK_KEY=<browserstack-access-key>
-  ```
 
 ## Connecting to BrowserStack via a proxy server
 
