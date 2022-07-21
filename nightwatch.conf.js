@@ -6,8 +6,8 @@ const bstackOptions = {
       "sessionName" : "Selenium-4 Nodejs snippet test",
       "local" : "false",
       "seleniumVersion" : "4.0.0",
-      userName: '${BROWSERSTACK_USER}',
-      accessKey: '${BROWSERSTACK_KEY}',
+      userName: '${BROWSERSTACK_USERNAME}',
+      accessKey: '${BROWSERSTACK_ACCESS_KEY}',
   },
 }
 

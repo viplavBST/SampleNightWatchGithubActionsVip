@@ -17,6 +17,6 @@ module.exports = {
     browser.useXpath().expect.element('//*[@class="float-cart__content"]').to.be.present;
 
     // Check if product in cart is equal to the product we selected
-    browser.useXpath().expect.element('//*[@id="__next"]/div/div/div[2]/div[2]/div[2]/div/div[3]/p[1]').text.to.equal(productText.value);
+    browser.useXpath().expect.element('//*[@id="__next"]/div/div/div[2]/div[2]/div[2]/div/div[3]/p[1]').text.to.equal(productText);
   }
 };
