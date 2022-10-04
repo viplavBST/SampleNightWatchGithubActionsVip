@@ -7,8 +7,9 @@ const bstackOptions = {
   'bstack:options' : {
       "os" : "OS X",
       "osVersion" : "Sierra",
-      "buildName" : "Final-Snippet-Test",
+      "buildName" : "browserstack-build-1",
       "sessionName" : "Selenium-4 Nodejs snippet test",
+      "source": "nightwatch:sample-master:v1.0",
       "local" : "false",
       "seleniumVersion" : "4.0.0",
       userName: '${BROWSERSTACK_USERNAME}',
@@ -82,6 +83,6 @@ module.exports = {
         },
       },
     },
-  ...additonalEnvironments.test_settings
+    ...additonalEnvironments.test_settings
   }
 }
