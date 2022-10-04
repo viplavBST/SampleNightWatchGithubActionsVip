@@ -1,3 +1,8 @@
+const additonalEnvironments = require("./environments");
+
+if(!additonalEnvironments.test_settings)
+  additonalEnvironments.test_settings = {};
+
 const bstackOptions = {
   'bstack:options' : {
       "os" : "OS X",
@@ -64,18 +69,19 @@ module.exports = {
     'browserstack.local': {
       ...browserStack,
       desiredCapabilities: {
-       browserName: 'chrome',
-          'bstack:options' : {
-              "os" : "OS X",
-              "osVersion" : "Sierra",
-              "buildName" : "Final-Snippet-Test",
-              "sessionName" : "Selenium-4 Nodejs snippet test",
-              "local" : "true",
-              "seleniumVersion" : "4.0.0",
-              userName: '${BROWSERSTACK_USER}',
-              accessKey: '${BROWSERSTACK_KEY}',
-          },
-    }
-  }
+        browserName: 'chrome',
+        'bstack:options' : {
+            "os" : "OS X",
+            "osVersion" : "Sierra",
+            "buildName" : "Final-Snippet-Test",
+            "sessionName" : "Selenium-4 Nodejs snippet test",
+            "local" : "true",
+            "seleniumVersion" : "4.0.0",
+            userName: '${BROWSERSTACK_USER}',
+            accessKey: '${BROWSERSTACK_KEY}',
+        },
+      },
+    },
+  ...additonalEnvironments.test_settings
   }
 }
