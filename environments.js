@@ -1,8 +1,3 @@
-const selenium = {
-  "start_process" : false,
-  "host" : "hub.browserstack.com",
-  "port" : 443
-};
 const common_capabilities = {
   'buildName': 'browserstack-build-1',
   'userName': '${BROWSERSTACK_USERNAME}',
@@ -13,7 +8,6 @@ module.exports = {
   test_settings: {
     default: {},
     env1: {
-      selenium,
       desiredCapabilities: {
         "browserName": "Chrome",
         "bstack:options" : {
@@ -25,7 +19,6 @@ module.exports = {
       }
     },
     env2: {
-      selenium,
       desiredCapabilities: {
         "browserName": "Firefox",
         "bstack:options" : {
@@ -37,7 +30,6 @@ module.exports = {
       }
     },
     env3: {
-      selenium,
       desiredCapabilities: {
         "browserName": "Safari",
         "bstack:options" : {

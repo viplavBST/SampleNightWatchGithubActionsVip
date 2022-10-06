@@ -33,7 +33,7 @@ const browserStack = {
     }
 }
 
-module.exports = {
+const nightwatchConfigs = {
   src_folders: [],
 
   test_settings: {
@@ -83,7 +83,15 @@ module.exports = {
             accessKey: '${BROWSERSTACK_KEY}',
         },
       },
-    },
-    ...additonalEnvironments.test_settings
+    }
   }
 }
+
+for(let key in additonalEnvironments.test_settings) {
+  nightwatchConfigs.test_settings[key] = {
+    ...browserStack,
+    ...additonalEnvironments.test_settings[key]
+  };
+}
+
+module.exports = nightwatchConfigs;
