@@ -1,6 +1,6 @@
 const selenium = {
   "start_process" : false,
-  "host" : "hub-cloud.browserstack.com",
+  "host" : "hub.browserstack.com",
   "port" : 443
 };
 const common_capabilities = {
