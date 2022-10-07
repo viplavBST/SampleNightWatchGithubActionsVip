@@ -1,3 +1,8 @@
+const additonalEnvironments = require("./environments");
+
+if(!additonalEnvironments.test_settings)
+  additonalEnvironments.test_settings = {};
+
 const bstackOptions = {
   'bstack:options' : {
       "os" : "OS X",
@@ -18,7 +23,7 @@ const browserStack = {
     },
 
     selenium: {
-      host: 'hub-cloud.browserstack.com',
+      host: 'hub.browserstack.com',
       port: 443
     },
 
@@ -28,7 +33,7 @@ const browserStack = {
     }
 }
 
-module.exports = {
+const nightwatchConfigs = {
   src_folders: [],
 
   test_settings: {
@@ -66,18 +71,27 @@ module.exports = {
       ...browserStack,
       desiredCapabilities: {
        browserName: 'chrome',
-          'bstack:options' : {
-              "os" : "OS X",
-              "osVersion" : "Sierra",
-              "buildName" : "browserstack-build-1",
-              "sessionName" : "Selenium-4 Nodejs snippet test",
-              "source": "nightwatch:sample-master:v1.0",
-              "local" : "true",
-              "seleniumVersion" : "4.0.0",
-              userName: '${BROWSERSTACK_USER}',
-              accessKey: '${BROWSERSTACK_KEY}',
-          },
+        'bstack:options' : {
+            "os" : "OS X",
+            "osVersion" : "Sierra",
+            "buildName" : "browserstack-build-1",
+            "sessionName" : "Selenium-4 Nodejs snippet test",
+            "source": "nightwatch:sample-master:v1.0",
+            "local" : "true",
+            "seleniumVersion" : "4.0.0",
+            userName: '${BROWSERSTACK_USER}',
+            accessKey: '${BROWSERSTACK_KEY}',
+        },
+      },
     }
   }
-  }
 }
+
+for(let key in additonalEnvironments.test_settings) {
+  nightwatchConfigs.test_settings[key] = {
+    ...browserStack,
+    ...additonalEnvironments.test_settings[key]
+  };
+}
+
+module.exports = nightwatchConfigs;
