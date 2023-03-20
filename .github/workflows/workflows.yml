@@ -27,7 +27,7 @@ jobs:
     steps:
       - name: "Checkout"
         if: ${{ inputs.skip_test != 'true' }}
-        uses: actions/checkout@main
+        uses: actions/checkout@master
         with:
           fetch-depth: 1
           ref: ${{ steps.inputs.outputs.ref }}
@@ -40,7 +40,7 @@ jobs:
           node-version: "16"
           cache: npm
       - name: "Run Selenium tests with Browser Stack"
-        if: ${{ inputs.skip_test != 'true' }}
+
         run: |
           npm install 
           npm run suite
