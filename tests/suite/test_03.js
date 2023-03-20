@@ -11,5 +11,5 @@ module.exports = {
       }).expect.title().to.match(/BrowserStack 03/i);
     browser.end();
   },
-  //adding a comment
+  //removing
 };
