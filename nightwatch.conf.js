@@ -8,7 +8,7 @@ const bstackOptions = {
   'bstack:options' : {
       "os" : "OS X",
       "osVersion" : "Big Sur",
-      "buildName" : "browserstack-build-1",
+      "buildName" : "browserstack-build-github-actions-15",
       "sessionName" : "BStack nightwatch snippet",
       "source": "nightwatch:sample-master:v1.0",
       "local" : "false",
@@ -22,7 +22,7 @@ const localBstackOptions = {
   'bstack:options' : {
     "os" : "OS X",
     "osVersion" : "Big Sur",
-    "buildName" : "browserstack-build-1",
+    "buildName" : "browserstack-build-github-actions-15",
     "sessionName" : "BStack nightwatch snippet",
     "source": "nightwatch:sample-master:v1.0",
     "local" : "true",
