@@ -1,35 +1,53 @@
-name: 'BrowserStack Test'
-on: [push, pull_request]
+name: "TEST [SELENIUM]"
+#type: Workflow Trigger
+
+on:
+  push:
+    # Already covered by "deploy.yml" workflow
+    branches:
+      - '!main'
+      - '!default'
+  repository_dispatch:
+  workflow_dispatch:
+    inputs:
+      ref:
+        type: string
+        description: "[ref] e.g. branch, tag or commit to checkout [default: github_ref_name || github_head_ref ]"
+        required: false
+      skip_test:
+        description: "[skip_test] skips tests when 'true'"
+        type: string
+        required: false
+
 jobs:
-  ubuntu-job:
-    name: 'BrowserStack Test on Ubuntu'
-    runs-on: ubuntu-latest  # Can be self-hosted runner also
+  test:
+    name: "Run tests"
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
     steps:
-
-      - name: 'BrowserStack Env Setup'  # Invokes the setup-env action
-        uses: browserstack/github-actions/setup-env@master
+      - name: "Checkout"
+        if: ${{ inputs.skip_test != 'true' }}
+        uses: actions/checkout@main
         with:
-          username:  ${{ secrets.BROWSERSTACK_USERNAME }}
-          access-key: ${{ secrets.BROWSERSTACK_ACCESS_KEY }}
-
-      - name: 'BrowserStack Local Tunnel Setup'  # Invokes the setup-local action
-        uses: browserstack/github-actions/setup-local@master
+          fetch-depth: 1
+          ref: ${{ steps.inputs.outputs.ref }}
+      - name: "Setup Chrome"
+        uses: browser-actions/setup-chrome@v1
+      - name: "Setup Node"
+        if: ${{ inputs.skip_test != 'true' }}
+        uses: actions/setup-node@main
         with:
-          local-testing: start
-          local-identifier: random
-
-# The next 3 steps are for building the web application to be tested and starting the web server on the runner environment
-
-      - name: 'Checkout the repository'
-        uses: actions/checkout@master
-
-      - name: 'Building web application to be tested'
-        run: npm install
-
-      - name: 'Running test on BrowserStack'  # Invokes the actual test script that would run on BrowserStack browsers
-        run: npm run suite # See sample test script above
-
-      - name: 'BrowserStackLocal Stop'  # Terminating the BrowserStackLocal tunnel connection
-        uses: browserstack/github-actions/setup-local@master
-        with:
-          local-testing: stop
+          node-version: "16"
+          cache: npm
+      - name: "Run Selenium tests with Browser Stack"
+        if: ${{ inputs.skip_test != 'true' }}
+        run: |
+          npm install 
+          npm run suite
+        env:
+          #SELENIUM_EP2_USER: ${{secrets.SELENIUM_EP2_USER}}
+          #SELENIUM_EP2_KEY: ${{secrets.SELENIUM_EP2_KEY}}
+          #EP2_API_CLIENT_ID: ${{secrets.EP2_API_CLIENT_ID}}
+          #EP2_API_CLIENT_SECRET: ${{secrets.EP2_API_CLIENT_SECRET}}
+          BROWSERSTACK_USER: ${{secrets.BROWSERSTACK_USER}}
+          BROWSERSTACK_KEY: ${{secrets.BROWSERSTACK_KEY}}
