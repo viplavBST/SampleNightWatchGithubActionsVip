@@ -6,7 +6,7 @@ on:
     # Already covered by "deploy.yml" workflow
     branches:
       - '!main'
-      - '!default'
+      - '!master'
   repository_dispatch:
   workflow_dispatch:
     inputs:
