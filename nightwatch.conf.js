@@ -14,7 +14,7 @@ const bstackOptions = {
       "local" : "false",
       "seleniumVersion" : "4.0.0",
       userName: '${BROWSERSTACK_USERNAME}',
-      accessKey: '${BROWSERSTACK_ACCESS_KEY}',
+      accessKey: 'mf7GspxzV8sRzCByc5TG',
   },
 }
 
@@ -50,7 +50,7 @@ const browserStack = {
 }
 
 const nightwatchConfigs = {
-  src_folders: [],
+  src_folders: ['tests'],
   live_output: true,
 
   test_settings: {
