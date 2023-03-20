@@ -1,4 +1,4 @@
-# nightwatch-browserstack
+# nightwatch sample browserstack
 
 [Nightwatch](http://nightwatchjs.org/) Integration with BrowserStack.
 
