@@ -14,7 +14,7 @@ const bstackOptions = {
       "local" : "false",
       "seleniumVersion" : "4.0.0",
       userName: '${BROWSERSTACK_USERNAME}',
-      accessKey: 'mf7GspxzV8sRzCByc5TG',
+      accessKey: '${BROWSERSTACK_ACCESS_KEY}',
   },
 }
 

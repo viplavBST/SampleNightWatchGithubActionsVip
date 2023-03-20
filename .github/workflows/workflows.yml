@@ -10,7 +10,7 @@ jobs:
         uses: browserstack/github-actions/setup-env@master
         with:
           username:  ${{ secrets.BROWSERSTACK_USERNAME }}
-          access-key: 'mf7GspxzV8sRzCByc5TG'
+          access-key: ${{ secrets.BROWSERSTACK_ACCESS_KEY }}
 
       - name: 'BrowserStack Local Tunnel Setup'  # Invokes the setup-local action
         uses: browserstack/github-actions/setup-local@master
