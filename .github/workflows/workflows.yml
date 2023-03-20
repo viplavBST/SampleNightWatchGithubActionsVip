@@ -26,15 +26,13 @@ jobs:
     timeout-minutes: 90
     steps:
       - name: "Checkout"
-        if: ${{ inputs.skip_test != 'true' }}
-        uses: actions/checkout@master
+        uses: browserstack/github-actions/setup-env@master
         with:
           fetch-depth: 1
           ref: ${{ steps.inputs.outputs.ref }}
       - name: "Setup Chrome"
         uses: browser-actions/setup-chrome@v1
       - name: "Setup Node"
-        if: ${{ inputs.skip_test != 'true' }}
         uses: actions/setup-node@main
         with:
           node-version: "16"
